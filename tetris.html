@@ -217,7 +217,7 @@
                 ctx.textAlign = 'center';
                 ctx.fillText('GAME OVER', (COLS * SIZE) / 2, (ROWS * SIZE) / 2 - 20);
                 ctx.font = '16px Courier New';
-                ctx.fillText('Refresh to restart', (COLS * SIZE) / 2, (ROWS * SIZE) / 2 + 20);
+                ctx.fillText('Press Enter or R to restart', (COLS * SIZE) / 2, (ROWS * SIZE) / 2 + 20);
             } else if (paused) {
                 ctx.fillStyle = 'rgba(0,0,0,0.5)';
                 ctx.fillRect(0, 0, COLS * SIZE, ROWS * SIZE);
@@ -302,7 +302,8 @@
                 case 'ArrowDown': drop(); break;
                 case 'ArrowUp': rotate_(); break;
                 case ' ': hardDrop(); e.preventDefault(); break;
-                case 'p': case 'P': case 'Escape': togglePause(); e.preventDefault(); break;
+                case 'p': case 'P': case 'р': case 'Р': case 'Escape': togglePause(); e.preventDefault(); break;
+                case 'Enter': case 'r': case 'R': case 'к': case 'К': if (gameOver) { init(); } break;
             }
         });
 
